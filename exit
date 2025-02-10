@@ -1,0 +1,365 @@
+[33mcommit 7cd6007c506c5285e5a4e09d1de185ae80d14180[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;32manother[m[33m)[m
+Author: Md-humayun-kabir <humayunplabon075@gmail.com>
+Date:   Sun Feb 9 17:32:11 2025 +0600
+
+    first committttt
+
+[1mdiff --git a/Pipfile b/Pipfile[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6e6926b[m
+[1m--- /dev/null[m
+[1m+++ b/Pipfile[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32m[[source]][m
+[32m+[m[32murl = "https://pypi.org/simple"[m
+[32m+[m[32mverify_ssl = true[m
+[32m+[m[32mname = "pypi"[m
+[32m+[m
+[32m+[m[32m[packages][m
+[32m+[m[32mdjango = "*"[m
+[32m+[m
+[32m+[m[32m[dev-packages][m
+[32m+[m
+[32m+[m[32m[requires][m
+[32m+[m[32mpython_version = "3.12"[m
+[1mdiff --git a/Pipfile.lock b/Pipfile.lock[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d1b9b0c[m
+[1m--- /dev/null[m
+[1m+++ b/Pipfile.lock[m
+[36m@@ -0,0 +1,54 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m    "_meta": {[m
+[32m+[m[32m        "hash": {[m
+[32m+[m[32m            "sha256": "0b5823de65ff0f5100b8f0fd7642f5000e8f2788c925cc51afe587d419e35515"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "pipfile-spec": 6,[m
+[32m+[m[32m        "requires": {[m
+[32m+[m[32m            "python_version": "3.12"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "sources": [[m
+[32m+[m[32m            {[m
+[32m+[m[32m                "name": "pypi",[m
+[32m+[m[32m                "url": "https://pypi.org/simple",[m
+[32m+[m[32m                "verify_ssl": true[m
+[32m+[m[32m            }[m
+[32m+[m[32m        ][m
+[32m+[m[32m    },[m
+[32m+[m[32m    "default": {[m
+[32m+[m[32m        "asgiref": {[m
+[32m+[m[32m            "hashes": [[m
+[32m+[m[32m                "sha256:3e1e3ecc849832fe52ccf2cb6686b7a55f82bb1d6aee72a58826471390335e47",[m
+[32m+[m[32m                "sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "markers": "python_version >= '3.8'",[m
+[32m+[m[32m            "version": "==3.8.1"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "django": {[m
+[32m+[m[32m            "hashes": [[m
+[32m+[m[32m                "sha256:1e39eafdd1b185e761d9fab7a9f0b9fa00af1b37b25ad980a8aa0dac13535690",[m
+[32m+[m[32m                "sha256:8d203400bc2952fbfb287c2bbda630297d654920c72a73cc82a9ad7926feaad5"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "index": "pypi",[m
+[32m+[m[32m            "markers": "python_version >= '3.10'",[m
+[32m+[m[32m            "version": "==5.1.6"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "sqlparse": {[m
+[32m+[m[32m            "hashes": [[m
+[32m+[m[32m                "sha256:09f67787f56a0b16ecdbde1bfc7f5d9c3371ca683cfeaa8e6ff60b4807ec9272",[m
+[32m+[m[32m                "sha256:cf2196ed3418f3ba5de6af7e82c694a9fbdbfecccdfc72e281548517081f16ca"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "markers": "python_version >= '3.8'",[m
+[32m+[m[32m            "version": "==0.5.3"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "tzdata": {[m
+[32m+[m[32m            "hashes": [[m
+[32m+[m[32m                "sha256:24894909e88cdb28bd1636c6887801df64cb485bd593f2fd83ef29075a81d694",[m
+[32m+[m[32m                "sha256:7e127113816800496f027041c570f50bcd464a020098a3b6b199517772303639"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "markers": "python_version >= '2'",[m
+[32m+[m[32m            "version": "==2025.1"[m
+[32m+[m[32m        }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "develop": {}[m
+[32m+[m[32m}[m
+[1mdiff --git a/db.sqlite3 b/db.sqlite3[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d08b76e[m
+Binary files /dev/null and b/db.sqlite3 differ
+[1mdiff --git a/manage.py b/manage.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0f49ef7[m
+[1m--- /dev/null[m
+[1m+++ b/manage.py[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m#!/usr/bin/env python[m
+[32m+[m[32m"""Django's command-line utility for administrative tasks."""[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport sys[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef main():[m
+[32m+[m[32m    """Run administrative tasks."""[m
+[32m+[m[32m    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'prac.settings')[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        from django.core.management import execute_from_command_line[m
+[32m+[m[32m    except ImportError as exc:[m
+[32m+[m[32m        raise ImportError([m
+[32m+[m[32m            "Couldn't import Django. Are you sure it's installed and "[m
+[32m+[m[32m            "available on your PYTHONPATH environment variable? Did you "[m
+[32m+[m[32m            "forget to activate a virtual environment?"[m
+[32m+[m[32m        ) from exc[m
+[32m+[m[32m    execute_from_command_line(sys.argv)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mif __name__ == '__main__':[m
+[32m+[m[32m    main()[m
+[1mdiff --git a/myapp/__init__.py b/myapp/__init__.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/myapp/__pycache__/__init__.cpython-312.pyc b/myapp/__pycache__/__init__.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b28fbf4[m
+Binary files /dev/null and b/myapp/__pycache__/__init__.cpython-312.pyc differ
+[1mdiff --git a/myapp/__pycache__/admin.cpython-312.pyc b/myapp/__pycache__/admin.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4bb793e[m
+Binary files /dev/null and b/myapp/__pycache__/admin.cpython-312.pyc differ
+[1mdiff --git a/myapp/__pycache__/apps.cpython-312.pyc b/myapp/__pycache__/apps.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0f7401e[m
+Binary files /dev/null and b/myapp/__pycache__/apps.cpython-312.pyc differ
+[1mdiff --git a/myapp/__pycache__/forms.cpython-312.pyc b/myapp/__pycache__/forms.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5c6cc39[m
+Binary files /dev/null and b/myapp/__pycache__/forms.cpython-312.pyc differ
+[1mdiff --git a/myapp/__pycache__/models.cpython-312.pyc b/myapp/__pycache__/models.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8e61a32[m
+Binary files /dev/null and b/myapp/__pycache__/models.cpython-312.pyc differ
+[1mdiff --git a/myapp/__pycache__/urls.cpython-312.pyc b/myapp/__pycache__/urls.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7407d1a[m
+Binary files /dev/null and b/myapp/__pycache__/urls.cpython-312.pyc differ
+[1mdiff --git a/myapp/__pycache__/views.cpython-312.pyc b/myapp/__pycache__/views.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..169f777[m
+Binary files /dev/null and b/myapp/__pycache__/views.cpython-312.pyc differ
+[1mdiff --git a/myapp/admin.py b/myapp/admin.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8c38f3f[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/admin.py[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mfrom django.contrib import admin[m
+[32m+[m
+[32m+[m[32m# Register your models here.[m
+[1mdiff --git a/myapp/apps.py b/myapp/apps.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c34fb20[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/apps.py[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32mfrom django.apps import AppConfig[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass MyappConfig(AppConfig):[m
+[32m+[m[32m    default_auto_field = 'django.db.models.BigAutoField'[m
+[32m+[m[32m    name = 'myapp'[m
+[1mdiff --git a/myapp/forms.py b/myapp/forms.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..72c8e83[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/forms.py[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32mfrom django import forms[m
+[32m+[m[32mfrom django.contrib.auth.models import User[m
+[32m+[m[32mfrom django.contrib.auth.forms import UserCreationForm[m
+[32m+[m[32mfrom .models import UserProfile[m
+[32m+[m
+[32m+[m[32mclass UserRegistrationForm(UserCreationForm):[m
+[32m+[m[32m    email = forms.EmailField(required=True)[m
+[32m+[m
+[32m+[m[32m    class Meta:[m
+[32m+[m[32m        model = User[m
+[32m+[m[32m        fields = ['username', 'email', 'password1', 'password2'][m
+[32m+[m
+[32m+[m[32mclass UserProfileForm(forms.ModelForm):[m
+[32m+[m[32m    class Meta:[m
+[32m+[m[32m        model = UserProfile[m
+[32m+[m[32m        fields = ['bio', 'location','blood_group'][m
+\ No newline at end of file[m
+[1mdiff --git a/myapp/migrations/0001_initial.py b/myapp/migrations/0001_initial.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d81171b[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/migrations/0001_initial.py[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32m# Generated by Django 5.1.5 on 2025-02-08 16:10[m
+[32m+[m
+[32m+[m[32mimport django.db.models.deletion[m
+[32m+[m[32mfrom django.conf import settings[m
+[32m+[m[32mfrom django.db import migrations, models[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass Migration(migrations.Migration):[m
+[32m+[m
+[32m+[m[32m    initial = True[m
+[32m+[m
+[32m+[m[32m    dependencies = [[m
+[32m+[m[32m        migrations.swappable_dependency(settings.AUTH_USER_MODEL),[m
+[32m+[m[32m    ][m
+[32m+[m
+[32m+[m[32m    operations = [[m
+[32m+[m[32m        migrations.CreateModel([m
+[32m+[m[32m            name='Profile',[m
+[32m+[m[32m            fields=[[m
+[32m+[m[32m                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),[m
+[32m+[m[32m                ('bio', models.TextField(blank=True, null=True)),[m
+[32m+[m[32m                ('location', models.CharField(blank=True, max_length=100, null=True)),[m
+[32m+[m[32m                ('profile_pic', models.ImageField(blank=True, null=True, upload_to='profile_pics/')),[m
+[32m+[m[32m                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),[m
+[32m+[m[32m            ],[m
+[32m+[m[32m        ),[m
+[32m+[m[32m    ][m
+[1mdiff --git a/myapp/migrations/0002_userprofile_delete_profile.py b/myapp/migrations/0002_userprofile_delete_profile.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8f20007[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/migrations/0002_userprofile_delete_profile.py[m
+[36m@@ -0,0 +1,28 @@[m
+[32m+[m[32m# Generated by Django 5.1.5 on 2025-02-08 16:32[m
+[32m+[m
+[32m+[m[32mimport django.db.models.deletion[m
+[32m+[m[32mfrom django.conf import settings[m
+[32m+[m[32mfrom django.db import migrations, models[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass Migration(migrations.Migration):[m
+[32m+[m
+[32m+[m[32m    dependencies = [[m
+[32m+[m[32m        ('myapp', '0001_initial'),[m
+[32m+[m[32m        migrations.swappable_dependency(settings.AUTH_USER_MODEL),[m
+[32m+[m[32m    ][m
+[32m+[m
+[32m+[m[32m    operations = [[m
+[32m+[m[32m        migrations.CreateModel([m
+[32m+[m[32m            name='UserProfile',[m
+[32m+[m[32m            fields=[[m
+[32m+[m[32m                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),[m
+[32m+[m[32m                ('bio', models.TextField(blank=True)),[m
+[32m+[m[32m                ('location', models.CharField(blank=True, max_length=100)),[m
+[32m+[m[32m                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),[m
+[32m+[m[32m            ],[m
+[32m+[m[32m        ),[m
+[32m+[m[32m        migrations.DeleteModel([m
+[32m+[m[32m            name='Profile',[m
+[32m+[m[32m        ),[m
+[32m+[m[32m    ][m
+[1mdiff --git a/myapp/migrations/0003_userprofile_email.py b/myapp/migrations/0003_userprofile_email.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..807d21c[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/migrations/0003_userprofile_email.py[m
+[36m@@ -0,0 +1,18 @@[m
+[32m+[m[32m# Generated by Django 5.1.5 on 2025-02-08 17:24[m
+[32m+[m
+[32m+[m[32mfrom django.db import migrations, models[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass Migration(migrations.Migration):[m
+[32m+[m
+[32m+[m[32m    dependencies = [[m
+[32m+[m[32m        ('myapp', '0002_userprofile_delete_profile'),[m
+[32m+[m[32m    ][m
+[32m+[m
+[32m+[m[32m    operations = [[m
+[32m+[m[32m        migrations.AddField([m
+[32m+[m[32m            model_name='userprofile',[m
+[32m+[m[32m            name='email',[m
+[32m+[m[32m            field=models.EmailField(default='vul@gmail.com', max_length=254),[m
+[32m+[m[32m        ),[m
+[32m+[m[32m    ][m
+[1mdiff --git a/myapp/migrations/0004_rename_user_userprofile_username.py b/myapp/migrations/0004_rename_user_userprofile_username.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0599ff0[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/migrations/0004_rename_user_userprofile_username.py[m
+[36m@@ -0,0 +1,18 @@[m
+[32m+[m[32m# Generated by Django 5.1.5 on 2025-02-08 18:23[m
+[32m+[m
+[32m+[m[32mfrom django.db import migrations[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass Migration(migrations.Migration):[m
+[32m+[m
+[32m+[m[32m    dependencies = [[m
+[32m+[m[32m        ('myapp', '0003_userprofile_email'),[m
+[32m+[m[32m    ][m
+[32m+[m
+[32m+[m[32m    operations = [[m
+[32m+[m[32m        migrations.RenameField([m
+[32m+[m[32m            model_name='userprofile',[m
+[32m+[m[32m            old_name='user',[m
+[32m+[m[32m            new_name='username',[m
+[32m+[m[32m        ),[m
+[32m+[m[32m    ][m
+[1mdiff --git a/myapp/migrations/0005_rename_username_userprofile_user.py b/myapp/migrations/0005_rename_username_userprofile_user.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1a98a2d[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/migrations/0005_rename_username_userprofile_user.py[m
+[36m@@ -0,0 +1,18 @@[m
+[32m+[m[32m# Generated by Django 5.1.5 on 2025-02-08 18:30[m
+[32m+[m
+[32m+[m[32mfrom django.db import migrations[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass Migration(migrations.Migration):[m
+[32m+[m
+[32m+[m[32m    dependencies = [[m
+[32m+[m[32m        ('myapp', '0004_rename_user_userprofile_username'),[m
+[32m+[m[32m    ][m
+[32m+[m
+[32m+[m[32m    operations = [[m
+[32m+[m[32m        migrations.RenameField([m
+[32m+[m[32m            model_name='userprofile',[m
+[32m+[m[32m            old_name='username',[m
+[32m+[m[32m            new_name='user',[m
+[32m+[m[32m        ),[m
+[32m+[m[32m    ][m
+[1mdiff --git a/myapp/migrations/0006_userprofile_blood_group.py b/myapp/migrations/0006_userprofile_blood_group.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cf142d5[m
+[1m--- /dev/null[m
+[1m+++ b/myapp/migrations/0006_userprofile_blood_group.py[m
+[36m@@ -0,0 +1,18 @@[m
+[32m+[m[32m# Generated by Django 5.1.5 on 2025-02-08 18:57[m
+[32m+[m
+[32m+[m[32mfrom django.db import migrations, models[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass Migration(migrations.Migration):[m
+[32m+[m
+[32m+[m[32m    dependencies = [[m
+[32m+[m[32m        ('myapp', '0005_rename_username_userprofile_user'),[m
+[32m+[m[32m    ][m
+[32m+[m
+[32m+[m[32m    operations = [[m
+[32m+[m[32m        migrations.AddField([m
+[32m+[m[32m            model_name='userprofile',[m
+[32m+[m[32m            name='blood_group',[m
+[32m+[m[32m            field=models.CharField(blank=True, choices=[('A+', 'A+'), ('A-', 'A-'), ('B+', 'B+'), ('B-', 'B-'), ('AB+', 'AB+'), ('AB-', 'AB-'), ('O+', 'O+'), ('O-', 'O-')], max_length=3),[m
+[32m+[m[32m        ),[m
+[32m+[m[32m    ][m
+[1mdiff --git a/myapp/migrations/__init__.py b/myapp/migrations/__init__.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/myapp/migrations/__pycache__/0001_initial.cpython-312.pyc b/myapp/migrations/__pycache__/0001_initial.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e63c8ba[m
+Binary files /dev/null and b/myapp/migrations/__pycache__/0001_initial.cpython-312.pyc differ
+[1mdiff --git a/myapp/migrations/__pycache__/0002_userprofile_delete_profile.cpython-312.pyc b/myapp/migrations/__pycache__/0002_userprofile_delete_profile.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a38ff71[m
+Binary files /dev/null and b/myapp/migrations/__pycache__/0002_userprofile_delete_profile.cpython-

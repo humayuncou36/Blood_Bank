@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
+{% extends "base.html" %}
+
+{% block bodypart %}
+
 <body>
-    <h1>User Profiles</h1>
-
-    <h2>Search Contactsyyyyyyyyyyyyyyyyyy</h2>
-
-    <h2>Search Contacts</h2>
+    <h1>Search for Donor</h1>
     
-    <form method="GET" action="{% url 'search_view_form' %}">
-        <input type="text" name="username" placeholder="Enter username" value="{{ request.GET.username }}">
-        <input type="text" name="email" placeholder="Enter email" value="{{ request.GET.email }}">
-        {% comment %} <select name="blood_group">
-            <option value="">Choose blood </option>
-            {% for value, label in UserProfile.BLOOD_GROUP_CHOICES %}
-         <option value="{{ value }}" {% if value == blood_group %}selected{% endif %}>{{ label }}</option>       
-        <option value="{{ value }}" {% if request.GET.blood_group == value %}selected{% endif %}>{{ label }}</option> 
-        </select>  {% endcomment %}
+    
+    <form method="GET" action="{% url 'search' %}">
+        <label>username</label><input type="text" name="username" placeholder="Enter username" value="{{ request.GET.username }}">
+        <label>email</label><input type="text" name="email" placeholder="Enter email" value="{{ request.GET.email }}">
 
-        <label for="blood_group">Select Blood Group:</label>
+
+
+        
+<label for="blood_group">Select Blood Group:</label>
         <select name="blood_group" id="blood_group">
             <option value="">Select Blood Group</option>
             <option value="A+">A+</option>
@@ -32,30 +24,87 @@
             <option value="AB-">AB-</option>
             <option value="O+">O+</option>
             <option value="O-">O-</option>
-        </select>
-
-
+        </select> 
+        
+        
         <button type="submit">Search</button>
     </form>
     
+    {% comment %} <h1>User Profiles</h1>
     {% if results %}
         <h2>Search Results:</h2>
-        <ul>
+        <div>
+          
             {% for profile in results %}
+
+                
+                <div>
+                    <li>
+                        <strong>{{ profile.user.username }}</strong><br>
+                        Email: {{ profile.email }}<br>
+                        Blood_Group: {{ profile.blood_group }}<br>
+                        Bio: {{ profile.bio }}<br>
+                        Location: {{ profile.location }}
+                    </li>
+
+                </div>
+
+
+            {% endfor %}
+            </div>
+            
+        </div>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}     
+    
+
+</body> {% endcomment %}
+
+<h1>User Profiles</h1>
+
+    {% if page_obj %}
+        <h2>Search Results:</h2>
+
+        {% for profile in page_obj %}
+            {% if forloop.first or forloop.counter0|divisibleby:3 %}
+                <div style="display: flex; gap: 20px;">  {# Start a new row #}
+            {% endif %}
+
+            <div style="border: 1px solid #ccc; padding: 10px; width: 30%;">
                 <li>
                     <strong>{{ profile.user.username }}</strong><br>
                     Email: {{ profile.email }}<br>
-                    Blood_Group: {{ profile.blood_group }}<br>
+                    Blood Group: {{ profile.blood_group }}<br>
                     Bio: {{ profile.bio }}<br>
                     Location: {{ profile.location }}
                 </li>
-            {% endfor %}
-        </ul>
+            </div>
+
+            {% if forloop.counter|divisibleby:3 or forloop.last %}
+                </div>  {# Close the row after 3 users or at the last user #}
+            {% endif %}
+        {% endfor %}
+
+        {# Pagination Controls #}
+        <div style="margin-top: 20px;">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% endif %}
+        </div>
+
     {% else %}
         <p>No results found.</p>
     {% endif %}
-    
-    
-
 </body>
-</html>
+
+
+{% endblock bodypart %}

@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth.decorators import login_required
@@ -29,16 +30,32 @@ def user_login(request):
             return redirect('profile')
     return render(request, 'login.html')
 
+# @login_required
+# def profile(request):
+#     if request.method == 'POST':
+#         form = UserProfileForm(request.POST,request.FILES, instance=request.user.userprofile)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#     else:
+#         form = UserProfileForm(instance=request.user.userprofile)
+#     return render(request, 'profile.html', {'form': form})
+
+
 @login_required
 def profile(request):
+    profile = UserProfile.objects.get(user=request.user)
+    
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('home')  # Redirect to the same or another view
     else:
-        form = UserProfileForm(instance=request.user.userprofile)
-    return render(request, 'profile.html', {'form': form})
+        form = UserProfileForm(instance=profile)
+    
+    return render(request, 'profile.html', {'form': form, 'profile': profile})
+
 
 
 def home(request):
@@ -53,16 +70,31 @@ def user_logout(request):
 #------------
 
 
-def search_view_form(request):
-    query_username = request.GET.get("username", "")  # Get "username" from URL
-    query_email = request.GET.get("email", "")  # Get "email" from URL
-    query_blood_group = request.GET.get("blood_group", "")
 
-    # Apply filtering based on user and email
+def search(request):
+    query_username = request.GET.get('username', '')
+    query_email = request.GET.get('email', '')
+    query_blood_group = request.GET.get('blood_group', '')
+
+    results = UserProfile.objects.all()
+    
     results = UserProfile.objects.filter(
-        user__username__icontains=query_username,  # Search for matching username
-        email__icontains=query_email, # Search for matching email
+        user__username__icontains=query_username,
+        email__icontains=query_email,
         blood_group__icontains=query_blood_group
-    )
+   )
 
-    return render(request, "search_result.html", {"results": results})
+    # Paginate results (9 users per page)
+    paginator = Paginator(results, 3)  
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'search_result.html', {'page_obj': page_obj})
+
+
+
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request,'contact.html')

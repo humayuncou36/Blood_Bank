@@ -13,4 +13,4 @@ class UserRegistrationForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio', 'location','blood_group']
+        fields = ['bio', 'location','blood_group','profile_picture']
